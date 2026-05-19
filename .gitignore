@@ -1,0 +1,45 @@
+# Build results
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# VS Code
+.vscode/
+
+# Rider
+.idea/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+
+# SQLite local database
+app.db
+app.db-shm
+app.db-wal
+
+# Entity Framework migrations snapshot cache
+*.db-journal
+
+# ASP.NET Core
+appsettings.Development.json
+
+# Node modules (if added later)
+node_modules/
+
+# Publish output
+publish/
+
+# Temporary files
+tmp/
+temp/
+
+# JetBrains Rider
+*.sln.iml
