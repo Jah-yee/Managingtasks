@@ -1,0 +1,18 @@
+@page
+@model Managingtasks.Pages.Tasks.CreateModel
+
+<h1>Create Task</h1>
+
+<form method="post">
+    <div>
+        <label>Title</label>
+        <input asp-for="TaskItem.Title" />
+    </div>
+
+    <div>
+        <label>Description</label>
+        <input asp-for="TaskItem.Description" />
+    </div>
+
+    <button type="submit">Save</button>
+</form>

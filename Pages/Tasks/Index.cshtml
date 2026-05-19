@@ -1,0 +1,106 @@
+@page
+@model Managingtasks.Pages.Tasks.IndexModel
+<head>
+    <title>Main Page</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;              /* Full screen height */
+            display: flex;
+             flex-direction: column;
+            justify-content: center;    /* Center horizontally */
+            align-items: center;        /* Center vertically */
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            background: white;
+            width: 600px;   
+            padding: 10px 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            font-size: 14px;
+        }
+
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background: #333;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f9f9f9;
+        }  
+        .page-title {
+            
+            top: 20px;
+            text-align: center;
+            width: 100%;
+        }
+              
+    </style>
+</head>
+<body>
+    <h1  class="page-titl">Main Page</h1>
+    <h2 class="">Your Tasks</h2>
+    <div class="container">
+        <form method="post" asp-page-handler="add"></form>
+          <a asp-page="/Tasks/Create" class="button button1">+ Task</a>
+        </form>
+        <a class="button button1">Edit</a>
+        <a class="button button2">Delete</a>
+        <table>
+          <tr>
+              <th>Id</th>
+              <th>Title</th>
+              <th>Description</th>
+              <th>Status</th>
+              <th>CreatedAt</th>
+              <th>UpdatedAt</th>
+          </tr>
+          @foreach (var task in Model.Tasks)
+          {
+    
+
+          <tr>
+              <td>Title</td>
+              <td>Admin</td>
+              <td>Description</td>
+              <td>
+                <form method="post" asp-page-handler="edit">
+                    <input type="hidden" name="id" value="@task.Id" />
+                    <select name="status">
+                        <option value="ToDo">To Do</option>
+                        <option value="InProgress">In Progress</option>
+                        <option value="Done">Done</option>
+                    </select>
+                    <button type="submit">Save</button>
+                </form>
+              </td>
+              <td>CreatedAt</td>
+              <td>UpdatedAt</td>
+              <td>
+                <form method="post" asp-page-handler="Delete">
+                  <input type="hidden" name="id" value="@task.Id" />
+                  <button type="submit">Delete</button>
+                </form>
+              </td>
+          </tr>
+          
+          }
+      </table>
+    </div>
+</body>
